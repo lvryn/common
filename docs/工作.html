@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="">
+    <title>工作</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,li{list-style: none;}
+        hr{margin: 10px 0;color: azure}
+        h2{text-align: center;background-color: lightsteelblue;padding: 10px;border-radius: 5px;}
+        .content{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+        .box{
+            width: 500px;
+            margin: 20px auto;
+            flex-shrink: 0;
+            background-color: lightcyan;
+            box-shadow: 0 0 10px 10px #f3f3f3;
+            border-radius: 5px;
+        }
+
+        .one-li{
+            width: 400px;
+            background-color: beige;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 5px #dadada;
+            padding: 30px;
+            margin: 15px auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="header">
+
+    </div>
+
+    <div class="content">
+        <div class="box">
+            <h2>一般工作相关</h2>
+            <ul>
+                <li class="one-li" v-for="(item,index) in a" :key="index" v-if="a">
+                    <h3>{{item.title}}</h3>
+                    <hr>
+                    <div><span>地址: </span><a :href="item.site_url">{{item.site_url}}</a></div>
+                    <div>
+                        <p v-if="item.usr">账号: {{item.usr}}</p>
+                        <p v-if="item.psw">密码: {{item.psw}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>云平台(pc小程序通用)</h2>
+            <ul>
+                <li class="one-li" v-for="(item,index) in b" :key="index">
+                    <h3>{{item.title}}</h3>
+                    <hr>
+                    <div><span>地址: </span><a :href="item.site_url">{{item.site_url}}</a></div>
+                    <div>
+                        <p>账号: {{item.usr}}</p>
+                        <p>密码: {{item.psw}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>重构食云安</h2>
+            <ul>
+                <li class="one-li" v-for="(item,index) in c" :key="index">
+                    <h3>{{item.title}}</h3>
+                    <hr>
+                    <div><span>地址: </span><a :href="item.site_url">{{item.site_url}}</a></div>
+                    <div>
+                        <p>账号: {{item.usr}}</p>
+                        <p>密码: {{item.psw}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>组件</h2>
+            <ul>
+                <li class="one-li" v-for="(item,index) in d" :key="index">
+                    <h3>{{item.title}}</h3>
+                    <hr>
+                    <div><span>地址: </span><a :href="item.site_url">{{item.site_url}}</a></div>
+                    <div>
+                        <p>示例页面: {{item.pages}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+        a:[
+          {title:'周报',site_url:'http://192.168.8.118/oa/#/login',usr:'lury',psw:'123456'},
+          {title:'禅道',site_url:'http://122.224.196.139:88/zentao/user-login.html',usr:'',psw:''},
+          {title:'UI图',site_url:'https://www.figma.com/',usr:'',psw:''},
+          {title:'SVN',site_url:'https://www.figma.com/',usr:'lvyr',psw:'1234ab'},
+        ],
+        b:[
+          {title:'监管云平台接口文档',site_url:'http://192.168.8.118/interface/',usr:'zhangjh@nkcsiot.com',psw:'123123'},
+          {title:'配置权限(开发环境-118)',site_url:'https://fda.food315315.cn/server/ejwf/signin?locale=null',usr:'admin',psw:'1'},
+        ],
+        c:[
+          {title:'配置权限(开发环境-吴根会)',site_url:'http://192.168.8.246:8080/server/ejwf/home',usr:'admin',psw:'1'},
+        ],
+        d:[
+          {title:'组件文档',site_url:'https://easydoc.xyz/doc/10310191/w9gkTFPI/MVP1FOm3',pages:'/pages/example/list'},
+        ],
+    }
+  })
+</script>
+</body>
+</html>
